@@ -3,6 +3,28 @@ services:
   timemachine:
     container_name: timemachine
     image: "mbentley/timemachine:smb"
+    environment:
+        - ADVERTISED_HOSTNAME=${ADVERTISED_HOSTNAME}
+        - CUSTOM_SMB_CONF="${CUSTOM_SMB_CONF}
+        - CUSTOM_USER=${CUSTOM_USER}
+        - DEBUG_LEVEL=${DEBUG_LEVEL}
+        - MIMIC_MODEL=${MIMIC_MODEL}
+        - EXTERNAL_CONF=${EXTERNAL_CONF}
+        - HIDE_SHARES=${HIDE_SHARES}
+        - TM_USERNAME=${TM_USERNAME}
+        - TM_GROUPNAME=${TM_GROUPNAME}
+        - TM_UID=${TM_UID}
+        - TM_GID=${TM_GID}
+        - PASSWORD=${PASSWORD}
+        - SET_PERMISSIONS=${SET_PERMISSIONS}
+        - SHARE_NAME=${SHARE_NAME}
+        - SMB_INHERIT_PERMISSIONS=${SMB_INHERIT_PERMISSIONS}
+        - SMB_NFS_ACES=${SMB_NFS_ACES}
+        - SMB_METADATA=${SMB_METADATA}
+        - SMB_PORT=${SMB_PORT}
+        - SMB_VFS_OBJECTS=${SMB_VFS_OBJECTS}
+        - VOLUME_SIZE_LIMIT=${VOLUME_SIZE_LIMIT}
+        - WORKGROUP=${WORKGROUP}
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - timemachine-var-lib-samba:/var/lib/samba
