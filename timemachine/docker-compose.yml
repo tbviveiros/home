@@ -2,7 +2,7 @@ version: '3'
 services:
   timemachine:
     container_name: timemachine
-    image: "mbentley/timemachine:smb"
+    image: "mbentley/timemachine:latest-smb-amd64"
     environment:
         - ADVERTISED_HOSTNAME=${ADVERTISED_HOSTNAME}
         - CUSTOM_SMB_CONF="${CUSTOM_SMB_CONF}
@@ -27,9 +27,9 @@ services:
         - WORKGROUP=${WORKGROUP}
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - timemachine-var-lib-samba:/var/lib/samba
-      - timemachine-var-cache-samba:/var/cache/samba
-      - timemachine-run-samba:/run/samba
+      # - timemachine-var-lib-samba:/var/lib/samba
+      # - timemachine-var-cache-samba:/var/cache/samba
+      # - timemachine-run-samba:/run/samba
       - /mnt/timemachine:/opt/timemachine
     restart: always
     network_mode: host
